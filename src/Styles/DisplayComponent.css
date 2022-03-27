@@ -1,0 +1,50 @@
+.Message {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	justify-content: center;
+	color: white;
+}
+.Container {
+	background-color: black;
+}
+.card {
+	justify-content: center;
+}
+.card-body {
+	background-color: #153f4f;
+	color: white;
+}
+.dropdown-item{
+    color: white;
+}
+.md-textarea{
+    background-color: #153f4f;
+}
+.Success {
+	display: flex;
+	justify-content: center;
+}
+.text-danger {
+	margin-top: 50px;
+	margin-right: 20px;
+}
+.spin{
+    margin: 25px 15px 25px 15px;
+    height: 25px;
+}
+.alert
+{
+    margin-top: 15px;
+}
+.counter{
+	color: white;
+	padding: 5px 5px 5px 5px;
+	font-weight: bolder;
+	font-size: xx-large;
+}
+.speed{
+	color: white;
+	padding: 5px 5px 5px 5px;
+	font-weight: bolder;
+	font-size: xx-large;
+}
