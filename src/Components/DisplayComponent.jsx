@@ -28,12 +28,13 @@ function DisplayComponent() {
 		SetType("");
 	}, [Diff]);
 	const GetPara = () => {
-		let url = "http://metaphorpsum.com/paragraphs/1/";
+		let url = "https://baconipsum.com/api/?type=all-meat&sentences=";
 		url = url + AppendDiff(Diff);
+		url+="&start-with-lorem=1";
 		console.log(url);
 		fetch(url)
 			.then((response) => response.text())
-			.then((data) => SetDisplay(data), setCounter(0));
+			.then((data) => SetDisplay(data.substring(2,data.length-2)), setCounter(0));
 	};
 	const AppendDiff = (a) => {
 		if (a === "1") {
@@ -43,7 +44,7 @@ function DisplayComponent() {
 			return "4";
 		}
 		if (a === "3") {
-			return "5";
+			return "6";
 		}
 	};
 	const typeChangeHandler = (e) => {
