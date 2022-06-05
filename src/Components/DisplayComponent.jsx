@@ -2,8 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SpeedComponent from "./SpeedComponent";
 import "../Styles/DisplayComponent.css";
+import ToggleButton from "./ToggleButton";
 
-function DisplayComponent() {
+function DisplayComponent(props) {
 	const [Display, SetDisplay] = useState("");
 	const [Type, SetType] = useState("");
 	const [Message, SetMessage] = useState("");
@@ -11,22 +12,31 @@ function DisplayComponent() {
 	const [counter, setCounter] = useState(0);
 	const [start, setStart] = useState(false);
 	const [userSpeed, SetUserSpeed] = useState(0);
+	const [name, SetName] = useState("");
+
 	useEffect(() => {
 		const timer =
 			start && counter >= 0 && setInterval(() => setCounter(counter + 1), 1000);
 		return () => clearInterval(timer);
 	}, [counter, start]);
+
 	useEffect(() => {
 		Check(Type);
-		if (Type.length === 1) {
+		if (Type.length>0) {
 			setStart(true);
 		}
 	}, [Type]);
+
 	useEffect(() => {
 		GetPara();
+		if(sessionStorage.getItem("Name"))
+		{
+		SetName("Hey "+sessionStorage.getItem("Name").toUpperCase() + " start to type here...");
+		}
 		SetMessage("Not Matching");
 		SetType("");
 	}, [Diff]);
+
 	const GetPara = () => {
 		let url = "https://baconipsum.com/api/?type=all-meat&sentences=";
 		url = url + AppendDiff(Diff);
@@ -36,20 +46,23 @@ function DisplayComponent() {
 			.then((response) => response.text())
 			.then((data) => SetDisplay(data.substring(2,data.length-2)), setCounter(0));
 	};
+
 	const AppendDiff = (a) => {
 		if (a === "1") {
-			return "3";
+			return "2";
 		}
 		if (a === "2") {
-			return "4";
+			return "5";
 		}
 		if (a === "3") {
-			return "6";
+			return "7";
 		}
 	};
+
 	const typeChangeHandler = (e) => {
 		SetType(e.target.value);
 	};
+
 	const Check = (a) => {
 		if (a === Display) {
 			SetMessage("Matched");
@@ -62,11 +75,16 @@ function DisplayComponent() {
 	};
 	const dropDownChangeHandler = (e) => {
 		SetDiff(e.target.value);
+		setStart(false);
 	};
+	
+	console.log(name)
 
 	return (
 		<div className="Container">
+			
 			<div class="dropdown">
+			<ToggleButton Message={"Show Leaderboard"} value={props.SetLeaderBoard}/>
 				<select
 					class="btn btn-secondary dropdown-toggle"
 					type="button"
@@ -82,6 +100,9 @@ function DisplayComponent() {
 					<option class="dropdown-item" value={"3"}>
 						Hard
 					</option>
+					<option class="dropdown-item" value={"4"}>
+						Game Mode
+					</option>
 				</select>
 			</div>
 			<div className="counter">{counter}</div>
@@ -95,7 +116,7 @@ function DisplayComponent() {
 					rows="10"
 					onChange={typeChangeHandler}
 					value={Type}
-					placeholder="Start to type here...."
+					placeholder={name}
 				></textarea>
 			</div>
 			<div className="Success">

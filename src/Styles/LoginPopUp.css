@@ -1,0 +1,17 @@
+.clBtn{
+display: flex;
+align-items: flex-end;
+}
+.signUpBtn
+{
+    background-color:black;
+    color: white;
+}
+.LoginWrapper
+{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(255,255,255,0.8);
+}

@@ -6,6 +6,7 @@
 }
 .Container {
 	background-color: black;
+	min-height: 100vh;
 }
 .card {
 	justify-content: center;
@@ -14,11 +15,16 @@
 	background-color: #153f4f;
 	color: white;
 }
-.dropdown-item{
-    color: white;
+.dropdown {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
-.md-textarea{
-    background-color: #153f4f;
+.dropdown-item {
+	color: white;
+}
+.md-textarea {
+	background-color: #153f4f;
 }
 .Success {
 	display: flex;
@@ -28,23 +34,60 @@
 	margin-top: 50px;
 	margin-right: 20px;
 }
-.spin{
-    margin: 25px 15px 25px 15px;
-    height: 25px;
+.spin {
+	margin: 25px 15px 25px 15px;
+	height: 25px;
 }
-.alert
-{
-    margin-top: 15px;
+.alert {
+	margin-top: 15px;
 }
-.counter{
+.counter {
+	color: white;
+	padding: 5px 5px 5px 5px;
+	font-weight: bolder;
+	font-size: xx-large;
+	background-color: black;
+	animation-name: example;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+@keyframes example {
+	from {
+		background-color:black;
+	}
+	to {
+		background-color: #153f4f;
+	}
+}
+.speed {
 	color: white;
 	padding: 5px 5px 5px 5px;
 	font-weight: bolder;
 	font-size: xx-large;
 }
-.speed{
+.seven h1 {
+	text-align: center;
+	font-size: 30px;
+	font-weight: 300;
+	background-color: black;
 	color: white;
-	padding: 5px 5px 5px 5px;
-	font-weight: bolder;
-	font-size: xx-large;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	display: grid;
+	grid-template-columns: 1fr max-content 1fr;
+	grid-template-rows: 27px 0;
+	grid-gap: 20px;
+	align-items: center;
+	padding-top: 25px;
+	margin-bottom: 0px;
+}
+
+.seven h1:after,
+.seven h1:before {
+	content: " ";
+	display: block;
+	border-bottom: 1px solid #c50000;
+	border-top: 1px solid #c50000;
+	height: 5px;
+	background-color: #f8f8f8;
 }
