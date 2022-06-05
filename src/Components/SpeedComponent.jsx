@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/DisplayComponent.css";
 function SpeedComponent(props) {
-	let name = sessionStorage.getItem("Name").toUpperCase()
+	let name = sessionStorage.getItem("Name").toUpperCase()? sessionStorage.getItem("Name").toUpperCase() : "user";
 	return (
 		<>
 			{props.Message === "Matched" && props.Speed>45 && (<div className="speed">Soo fast....!</div>)}
