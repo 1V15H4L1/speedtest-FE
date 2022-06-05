@@ -55,7 +55,20 @@ function LoginPopup(props) {
 		} else if (BtnName === "SignUp") {
 			console.log(body);
 			api.SignUp(body).then((res) => {
-				window.alert(res.status);
+				if(res.status==="Successfully added")
+				{
+					SetSignUp(false);
+					SetForgotPassword(false);
+					SetBtnName("Login");
+					window.alert(res.status);
+				}
+				else if(res.status==="Successfully added")
+				{
+					SetSignUp(false);
+					SetForgotPassword(false);
+					window.alert(res.status);
+				}
+				
 			});
 		} else if (BtnName === "Set") {
 			console.log(body);

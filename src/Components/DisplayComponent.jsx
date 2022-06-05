@@ -35,7 +35,7 @@ function DisplayComponent(props) {
 		}
 		SetMessage("Not Matching");
 		SetType("");
-	}, [Diff]);
+	}, [Diff,props.showPopUp]);
 
 	const GetPara = () => {
 		let url = "https://baconipsum.com/api/?type=all-meat&sentences=";

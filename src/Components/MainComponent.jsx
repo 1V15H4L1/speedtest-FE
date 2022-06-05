@@ -15,7 +15,7 @@ function MainComponent() {
 
     <div class="seven">
 				<h1>SPEED TEST</h1>
-    <DisplayComponent SetLeaderBoard={SetLeaderBoard}/>
+    <DisplayComponent SetLeaderBoard={SetLeaderBoard} showPopUp={showPopUp}/>
     {Leaderboard && <LeaderBoardComponent/> }
     </div>
     </>

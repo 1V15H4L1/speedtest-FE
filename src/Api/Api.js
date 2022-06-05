@@ -7,7 +7,7 @@ export let axiosConfig = {
 	headers: {
 		"Content-Type": "application/json",
 		"x-access-token": "",
-		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Origin": "true",
 	},
 };
 export const Login = (body) => {
