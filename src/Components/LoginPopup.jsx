@@ -47,10 +47,15 @@ function LoginPopup(props) {
 			api.Login(body).then((res) => {
 				if (res.status === "Login Successful") {
 					props.setShowPopUp(false);
+					window.alert("Welcome " + res.Name);
+				}
+				else
+				{
+					window.alert(res.status);
 				}
 				//Assigning session storage value to a key
 				sessionStorage.setItem("Name", res.Name);
-				window.alert("Welcome " + res.Name);
+				
 			});
 		} else if (BtnName === "SignUp") {
 			console.log(body);

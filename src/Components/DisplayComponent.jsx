@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useLayoutEffect } from "react";
 import SpeedComponent from "./SpeedComponent";
 import "../Styles/DisplayComponent.css";
 import ToggleButton from "./ToggleButton";
@@ -27,7 +27,7 @@ function DisplayComponent(props) {
 		}
 	}, [Type,Message]);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		GetPara();
 		if(sessionStorage.getItem("Name"))
 		{
