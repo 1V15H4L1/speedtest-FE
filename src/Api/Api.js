@@ -11,7 +11,7 @@ export let axiosConfig = {
 	},
 };
 export const Login = (body) => {
-	return axios
+	return instance
 		.post("/api/LogIn", body, axiosConfig)
 		.then((res) => {
 			return res.data;
@@ -22,7 +22,7 @@ export const Login = (body) => {
 };
 
 export const SignUp = (body) => {
-	return axios
+	return instance
 		.post("/api/SignUp", body, axiosConfig)
 		.then((res) => {
 			return res.data;
