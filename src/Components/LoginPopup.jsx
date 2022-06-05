@@ -62,10 +62,11 @@ function LoginPopup(props) {
 					SetBtnName("Login");
 					window.alert(res.status);
 				}
-				else if(res.status==="Successfully added")
+				else if(res.status==="Successfully updated")
 				{
 					SetSignUp(false);
 					SetForgotPassword(false);
+					SetBtnName("Login");
 					window.alert(res.status);
 				}
 				
@@ -73,7 +74,13 @@ function LoginPopup(props) {
 		} else if (BtnName === "Set") {
 			console.log(body);
 			api.SignUp(body).then((res) => {
-				window.alert(res.status);
+				if(res.status==="Successfully updated")
+				{
+					SetSignUp(false);
+					SetForgotPassword(false);
+					SetBtnName("Login");
+					window.alert(res.status);
+				}
 			});
 		}
 	};

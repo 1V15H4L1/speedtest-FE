@@ -22,10 +22,10 @@ function DisplayComponent(props) {
 
 	useEffect(() => {
 		Check(Type);
-		if (Type.length>0) {
+		if (Type.length>0 && Message==="Not Matching") {
 			setStart(true);
 		}
-	}, [Type]);
+	}, [Type,Message]);
 
 	useEffect(() => {
 		GetPara();
@@ -35,7 +35,7 @@ function DisplayComponent(props) {
 		}
 		SetMessage("Not Matching");
 		SetType("");
-	}, [Diff,props.showPopUp]);
+	}, [Diff]);
 
 	const GetPara = () => {
 		let url = "https://baconipsum.com/api/?type=all-meat&sentences=";
