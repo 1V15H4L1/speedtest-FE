@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/DisplayComponent.css";
 function SpeedComponent(props) {
-	let name = sessionStorage.getItem("Name")
+	let name = !sessionStorage.getItem("Name")
 		? "user"
 		: sessionStorage.getItem("Name").toUpperCase();
 	return (
