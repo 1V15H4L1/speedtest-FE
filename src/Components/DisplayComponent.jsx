@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect,useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import SpeedComponent from "./SpeedComponent";
 import "../Styles/DisplayComponent.css";
 import ToggleButton from "./ToggleButton";
@@ -7,7 +7,7 @@ import ToggleButton from "./ToggleButton";
 function DisplayComponent(props) {
 	const [Display, SetDisplay] = useState("");
 	const [Type, SetType] = useState("");
-	const [Message, SetMessage] = useState("");
+	const [Message, SetMessage] = useState("Not Matching");
 	const [Diff, SetDiff] = useState("1");
 	const [counter, setCounter] = useState(0);
 	const [start, setStart] = useState(false);
@@ -27,7 +27,7 @@ function DisplayComponent(props) {
 		}
 	}, [Type,Message]);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		GetPara();
 		if(sessionStorage.getItem("Name"))
 		{
